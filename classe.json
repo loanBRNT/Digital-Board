@@ -1,0 +1,13 @@
+{
+	eleve:[
+		{
+			name: Justin,
+			surname: BRIDOU,
+			age: 18
+		},{
+			name: Mia;
+			surname: KHALIFA,
+			age: 20
+		}
+	]
+}

@@ -6,8 +6,8 @@ public class Wallet extends Widget{
 "Eleve un peu perturbateur","A du mal dans les matières scientifiques","Fait des efforts pour améliorer ses résultats","A des résultats excellent"};
   String tabMoy[] = {"10","15","3","6","14","12","11","9","18"};
   String tabAge[] = {"22","21","17","22","22","23","21","21","19"};
-  PImage tabPdp[] = {loadImage("Data/OIP.jpg"),loadImage("Data/OIP.jpg"),loadImage("Data/OIP.jpg"),loadImage("Data/OIP.jpg"),loadImage("Data/OIP.jpg"),loadImage("Data/OIP.jpg"),
-  loadImage("Data/OIP.jpg"),loadImage("Data/OIP.jpg"),loadImage("Data/OIP.jpg")};
+  PImage tabPdp[] = {loadImage("Data/joe.jpg"),loadImage("Data/david.jpg"),loadImage("Data/greg.jpg"),loadImage("Data/karim.jpg"),loadImage("Data/OIP.jpg"),loadImage("Data/justin.jpg"),
+  loadImage("Data/benoit.jpg"),loadImage("Data/vanessa.jpg"),loadImage("Data/emma.jpg")};
   
   ArrayList<Object> listeObject;
   int nbElev = 9;
@@ -37,14 +37,14 @@ public class Wallet extends Widget{
   }
   
   void draWidget(){
-      background(BLEU);
+      rect(30,0,430,1000);
       for (int i = 0; i < listeObject.size(); i++){
         listeObject.get(i).drawObject();
       }
   }
   
   void mouseDraggedWallet(){
-    if(mouseX < 400){
+    if(mouseX < 430 && mouseX > 30){
       for (int i = 0; i < listeObject.size(); i++){
         listeObject.get(i).update(old_mouseY);
       }

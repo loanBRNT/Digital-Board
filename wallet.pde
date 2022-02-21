@@ -37,7 +37,6 @@ public class Wallet extends Widget{
   }
   
   void draWidget(){
-      rect(30,0,430,1000);
       for (int i = 0; i < listeObject.size(); i++){
         listeObject.get(i).drawObject();
       }

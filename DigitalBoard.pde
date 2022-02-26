@@ -10,7 +10,7 @@ Tableau tab;
 STATUS etat;
 Connexion empreinte;
 Bandeau bandeau;
-Drag drag;
+FenFich fenetreExo;
 //Explorateur explo;
 
 //
@@ -35,9 +35,8 @@ void setup(){
   tab = new Tableau();
   empreinte = new Connexion();
   bandeau= new Bandeau();
-  drag = new Drag();
-  drag.setposition(width-80, 10);
-  //Explorateaur explo = new Explorateur();
+  fenetreExo = new FenFich();
+  
   //MISE EN OFF DE l'app
   etat=STATUS.OFF;
   
@@ -57,7 +56,7 @@ void draw(){
       wallet.draWidget();
       tab.draWidget();
       bandeau.draWidget();
-      drag.draWidget();
+      fenetreExo.draWidget();
       break;
     
     default:
@@ -68,7 +67,7 @@ void draw(){
 void mouseDragged(){
   tab.mouseDraggedTab();
   wallet.mouseDraggedWallet();
-  drag.mouseDraggedDrag();
+ fenetreExo.mouseDraggedDrag();
 }
 
 void mousePressed(){
@@ -76,9 +75,9 @@ void mousePressed(){
   wallet.mousePressedWallet();
   empreinte.mousePressedEmpreinte();
   bandeau.mousePressedBandeau();
-  drag.mousePressedDrag();
+  fenetreExo.mousePressedDrag();
 }
 
 void mouseReleased(){
-  drag.mouseReleasedDrag();
+  fenetreExo.mouseReleasedDrag();
 }

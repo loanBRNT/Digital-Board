@@ -67,7 +67,7 @@ void draw(){
 void mouseDragged(){
   tab.mouseDraggedTab();
   wallet.mouseDraggedWallet();
- fenetreExo.mouseDraggedFen();
+  fenetreExo.mouseDraggedFen();
 }
 
 void mousePressed(){

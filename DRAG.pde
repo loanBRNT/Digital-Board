@@ -52,8 +52,8 @@ void draWidget(){
     
     // Draw the box
     image(logo,bx,by,75,75);
-    if (affiche) image(doc,500,20,1000,540);
-    if (tick < 300){ 
+    if (affiche) tab.afficherDoc(doc);
+    if (tick < 150){ 
       textFont(police,30);
       fill(0);
       text("Document envoyé",900,680);

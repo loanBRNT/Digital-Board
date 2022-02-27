@@ -2,9 +2,18 @@ public class Tableau extends Widget{
   
 PFont police;
 PImage pointer, gom, font, rempli;
+int matriceTab[][]; 
 
 public Tableau(){
   setupWidget();
+}
+
+void resetMatrice(){
+  for (int i = 0 ; i < 1000 ; i++){
+    for (int j = 0 ; j < 600 ; j++){
+      matriceTab[i][j] = 0;
+    }
+  }
 }
 
 void setupWidget(){
@@ -13,6 +22,9 @@ void setupWidget(){
   rect(500,20,1000,600);
   fill(GREY);
   rect(500,560,1000,60);
+  
+  matriceTab = new int[1000][600];
+  resetMatrice();
   
   //load images
   pointer = loadImage("pointer.png");
@@ -43,26 +55,44 @@ void draWidget(){
   image(gom,570,572);
   image(font,635,572);
   image(rempli,695,572);
+  
+  for (int i = 0 ; i < 1000 ; i++){
+    for (int j = 0 ; j < 600 ; j++){
+      if(matriceTab[i][j] == 1){
+        point(500+i,20+j);
+      }
+    }
+  }
+}
+
+void afficherDoc(PImage doc){
+ image(doc,500,20,1000,540); 
 }
 
 void mouseDraggedTab(){
-  if((500<pmouseX) && (pmouseX<1500) && (20<pmouseY) && (pmouseY<560) && (500<mouseX) && (mouseX<1500) && (20<mouseY) && (mouseY<560)){
-  line(pmouseX,pmouseY,mouseX,mouseY);
+  if (!fenetreExo.drag.locked){
+    if((500<pmouseX) && (pmouseX<1500) && (20<pmouseY) && (pmouseY<560) && (500<mouseX) && (mouseX<1500) && (20<mouseY) && (mouseY<560)){   
+    matriceTab[mouseX-500][mouseY-20] = 1;
   }
-  
-  // ajouter sauvegarde de mouseX et mouseY pour tout dessiner au fur et a mesure pov je sais pas faire
+  }
 }
 
 void mousePressedTab(){
   if((500<mouseX) && (mouseX<1500) && (20<mouseY) && (mouseY<560)){
-    point(mouseX,mouseY);
+    matriceTab[mouseX-500][mouseY-20] = 1;
   }
+  if (570<mouseX && mouseX<610 && 572<mouseY && mouseY<612){
+    fenetreExo.drag.affiche = false;
+    resetMatrice();
+  }
+  
+  
   /*
   //mode selection
   if(){
   
   }
-  //mode gomme
+  mode gomme
   if(){
   
   }

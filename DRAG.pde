@@ -5,8 +5,7 @@ public class Drag extends Widget{
  * 
  * Click on the box and drag it across the screen. 
  */
-
-
+  int tick=400;
   float bx;
   float by;
   int boxSize = 75;
@@ -18,25 +17,27 @@ public class Drag extends Widget{
   
   PImage logo = loadImage("Data/PDF_icon.png");
   PImage doc = loadImage("Data/capture.png");
-
+  
 
 public boolean onTab(){
-  if (bx > 500 && bx < 1500 && 
-        by > 20 && by < 620) {
+  if (mouseX > 500 && mouseX < 1500 && 
+        mouseY > 20 && mouseY < 620) {
           return true;
         }
   return false;
 }
 
 public boolean onCard(){
- 
+  if (wallet.carteOuverte){
+    if (mouseX > 600 && mouseX < 1300 && 
+        mouseY > 700 && mouseY < 900) 
+          return true;
+        }
   return false;
 }
 
 void setupWidget(){
-    bx = width + 50; //emplacement boite
-    by = height/2.0;
-    drag.setposition(width-80, 10);
+    this.setposition(1600,100);
 
 }
 
@@ -52,14 +53,14 @@ void draWidget(){
     // Draw the box
     image(logo,bx,by,75,75);
     if (affiche) image(doc,500,20,1000,540);
-    
-    if (!onTab()){
-      setposition(width-80, 10); 
-    } else {
-       affiche = true;
-       bx = width + 50; //emplacement boite
-       by = height/2.0;
+    if (tick < 300){ 
+      textFont(police,30);
+      fill(0);
+      text("Document envoyé",900,680);
+      tick++;
     }
+    
+    setposition(1600, 100); 
 }
 
 void setposition(float x_pos, float y_pos){
@@ -70,8 +71,7 @@ void setposition(float x_pos, float y_pos){
   
   void mousePressedDrag() {
     if(overBox) { 
-      locked = true; 
-      fill(255, 255, 255);
+      locked = true;
     } else {
       locked = false;
     }
@@ -88,6 +88,17 @@ void setposition(float x_pos, float y_pos){
   }
   
   void mouseReleasedDrag() {
+    if (locked){  
+      if (onTab()){
+         affiche = true;
+      } else if (onCard()){
+        startTexteEnvoie();
+      }
+    }
     locked = false;
+  }
+  
+  void startTexteEnvoie(){
+     tick = 0;
   }
 }

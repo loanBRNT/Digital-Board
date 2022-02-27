@@ -67,7 +67,7 @@ void draw(){
 void mouseDragged(){
   tab.mouseDraggedTab();
   wallet.mouseDraggedWallet();
- fenetreExo.mouseDraggedDrag();
+ fenetreExo.mouseDraggedFen();
 }
 
 void mousePressed(){
@@ -75,9 +75,9 @@ void mousePressed(){
   wallet.mousePressedWallet();
   empreinte.mousePressedEmpreinte();
   bandeau.mousePressedBandeau();
-  fenetreExo.mousePressedDrag();
+  fenetreExo.mousePressedFen();
 }
 
 void mouseReleased(){
-  fenetreExo.mouseReleasedDrag();
+  fenetreExo.mouseReleasedFen();
 }

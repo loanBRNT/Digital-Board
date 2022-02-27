@@ -12,11 +12,22 @@ public class FenFich extends Widget{
  }
   
  public void draWidget(){
-    
+    rect(1550,20,300,500);
+    drag.draWidget();
     
   }
   
-  
+void mouseDraggedFen(){
+ drag.mouseDraggedDrag();
+}
+
+void mousePressedFen(){
+  drag.mousePressedDrag();
+}
+
+void mouseReleasedFen(){
+  drag.mouseReleasedDrag();
+}
   
   
   

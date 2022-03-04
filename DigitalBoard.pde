@@ -45,6 +45,7 @@ void setup(){
 }
 
 void draw(){
+  System.out.println(mouseX + "," + mouseY);
   switch(etat){
     case OFF:
       background(BLEU);
